@@ -1,0 +1,82 @@
+/* Color Variables */
+
+$text-shadow: 0 6px 12px rgba(0, 0, 0, .123);
+$box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .08);
+$background-colorBody: linear-gradient(45deg, rgba(249,252,247,1) 0%,rgba(245,249,240,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+$footer-Nav-background-color: linear-gradient(to right, rgba(225,255,255,1) 0%,rgba(225,255,255,1) 0%,rgba(253,255,255,1) 0%,rgba(190,228,248,1) 100%,rgba(230,248,253,1) 100%,rgba(177,216,245,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+$nav-link-background: #86e2f0;
+$dark-grey: #333333;
+$light-grey: #afafaf;
+$apricot: #f6b8a1;
+$coral: #f79f87;
+$green: #d4ead3;
+$dark-blue: #11284a;
+$light: #f8f9fa;
+$beige: #fff9ed;
+
+
+/* Typography  Fonts */
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 5vw, 65px);
+    text-transform: uppercase;
+    letter-spacing: 7px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(30px, 5vw, 40px);
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    
+}
+
+h3 {
+    font-family: gaultier, sans-serif;
+    font-weight: 600;
+    font-size: clamp(25px, 4vw, 30px);
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(30px, 5vw, 40px);
+    text-transform: uppercase;
+}
+
+h5 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: clamp(17px, 2vw, 20px);
+    text-transform: uppercase;
+
+}
+
+h6{
+    font-family: montserrat, sans-serif;
+    font-weight: 800;
+    font-size: clamp(12px, 2vw, 12px);
+    text-transform: uppercase;
+}
+
+
+body, button{
+    
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 2vw, 17px);
+    
+}
+
+
+
+
+ 
+
+//  font-family: 'Oswald', sans-serif;
+
+//     font-family: 'Playfair Display', serif;

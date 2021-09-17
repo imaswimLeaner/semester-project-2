@@ -1,0 +1,42 @@
+.card {
+    text-align: center;
+    border: none;
+    box-shadow: 2px 2px 16px 0 rgba(63, 62, 62, 0.05);
+
+    &-img-top {
+        background-size: cover;
+        display: flex;
+        height: 300px;
+        // width: 100%;
+        // object-fit: scale-down;
+        background-color: $light;
+    }
+
+    &--featured {
+        position: relative;
+
+        p {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            text-align: center;
+            padding: 5px 25px;
+            background-color: $apricot;
+        }
+    }
+
+    &-footer {
+        background-color: $green;
+        border: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .card-img-top {
+        height: 400px;
+    }
+
+    .admin .card-img-top {
+        height: 150px;
+    }
+}
