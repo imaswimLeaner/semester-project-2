@@ -37,17 +37,12 @@ function createCartItems(products) {
 
     } else {
         products.forEach(function (product) {
+            console.log(product)
             let imageUrl = '';
 
-			if (!product.image_url) {
-                
-                imageUrl = baseUrl + product.image.url;
+			imageUrl = baseUrl + product.image;
                     
-                } else {
                 
-                imageUrl = product.image_url;
-                
-            }
             
             
             // Add price of product to price array

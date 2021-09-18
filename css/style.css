@@ -152,6 +152,14 @@ section {
   margin-top: 2rem;
 }
 
+.subscribe {
+  max-width: 400px;
+  padding-top: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .navbar {
   background: -webkit-gradient(linear, left top, right top, from(#e1ffff), color-stop(0%, #e1ffff), color-stop(0%, #fdffff), color-stop(100%, #bee4f8), color-stop(100%, #e6f8fd), to(#b1d8f5));
   background: linear-gradient(to right, #e1ffff 0%, #e1ffff 0%, #fdffff 0%, #bee4f8 100%, #e6f8fd 100%, #b1d8f5 100%);
@@ -169,6 +177,11 @@ section {
   color: #000 !important;
   background-color: #86e2f0;
   border-color: 0 2px 16px 0 rgba(0, 0, 0, 0.08);
+  font-weight: bold !important;
+  font-style: uppercase;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  font-size: larger;
 }
 
 .navbar-brand img {
@@ -266,7 +279,7 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-size: obtain;
+  background-size: cover;
   background-position: center center;
 }
 
@@ -316,6 +329,7 @@ section {
   border: none;
   -webkit-box-shadow: 2px 2px 16px 0 rgba(63, 62, 62, 0.05);
           box-shadow: 2px 2px 16px 0 rgba(63, 62, 62, 0.05);
+  margin: 5px solid blue;
 }
 
 .card-img-top {
@@ -324,6 +338,7 @@ section {
   display: -ms-flexbox;
   display: flex;
   height: 300px;
+  width: 100%;
   background-color: #f8f9fa;
 }
 

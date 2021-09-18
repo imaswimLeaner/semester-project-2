@@ -19,7 +19,7 @@ function createFeaturedProducts(products) {
     const container = document.querySelector(".container__products");
     container.innerHTML = "";
     products.forEach(function (product) {
-
+        console.log(product);
         if (product.featured) {
             
             let imageUrl = '';

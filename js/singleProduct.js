@@ -1,9 +1,11 @@
 import createMenu from "./components/menu.js";
 import warningMessage from "./components/warningMessage.js";
 import { baseUrl } from "./settings/api.js";
-import { cartItemsKey, saveToStorage ,getFromStorage} from "./utils/cartStorage.js";
+import { cartItemsKey, saveToStorage, getFromStorage } from "./utils/cartStorage.js";
+import createFooter from './components/createFooter.js';
 
 createMenu();
+createFooter();
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -20,7 +22,7 @@ async function getSingleProduct() {
         const productsUrl = baseUrl + `/products?id=${id}`;
         const response = await fetch(productsUrl);
         const product = await response.json();
-        createSingleProduct(product);
+        // createSingleProduct(product);
         isItemInCart(product);
         addToCart(product);
     } catch (error) {
@@ -45,7 +47,8 @@ function createSingleProduct(products) {
     let featured = "";
 
     products.forEach(function (product) {
-        document.title = "Nature Soaps | " + product.title;
+        console.log(product)
+        document.title = "Bergs | " + product.title;
         if (product.featured === null || !product.featured) {
             featured = "";
         } else {
@@ -53,13 +56,10 @@ function createSingleProduct(products) {
             <p>Bestseller</p>
             </div>`;
         }
-        let imageUrl = '';
+        
 
-				if (!product.image_url) {
-					imageUrl = baseUrl + product.image.url;
-				} else {
-					imageUrl = product.image_url;
-				}
+        imageUrl = baseUrl + product.image.url;
+				
 
         container.innerHTML += `
         <div class="col-12 col-xl-8">
@@ -67,9 +67,9 @@ function createSingleProduct(products) {
         </div>
         <div class="col-12 col-xl-4 d-flex flex-column justify-content-center align-items-start product__info">
         ${featured}
-            <h1>${product.title}</h1>
-            <p class="product__description">${product.description}</p>
-            <p class="product__price">$${product.price}</p>
+            <h3>${product.title}</>
+            <h5 class="product__description">${product.description}</h5>
+            <p class="product__price">${product.price} NOK</p>
             <a class="btn btn-primary button" id="addToCartButton">${buttonText}</a>
         </div>`;
         const breadcrumb = document.querySelector(".breadcrumb-item.active");
@@ -95,16 +95,16 @@ function isItemInCart(product) {
 }
 
 function addToCart(product) {
+    
+    console.log(product)
     const button = document.querySelector("#addToCartButton");
 
     const id = product[0].id;
-    let imageUrl = '';
+    
 
-		if (!product.image_url) {
-			imageUrl = baseUrl + product.image.url;
-		} else {
-			imageUrl = product.image_url;
-		}
+		
+	imageUrl = baseUrl + product.image.url;
+		
             
 
     button.addEventListener("click", function (event) {
@@ -114,7 +114,7 @@ function addToCart(product) {
             const cartItem = {
 							id: product[0].id,
 							title: product[0].title,
-							image: imageUrl,
+                            image: imageUrl[0].image,
 							description: product[0].description,
 							price: product[0].price,
 							featured: product[0].featured,

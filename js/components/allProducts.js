@@ -28,13 +28,15 @@ export function createProducts(products) {
             warningContainer.style.display = "none";
         }
         products.forEach(function (product) {
-            let imageUrl = '';
+            console.log(product);
+           
+			     let imageUrl = '';
 
-			if (!product.image_url) {
-			    imageUrl = baseUrl + product.image.url;
-				} else {
-				imageUrl = product.image_url;
-			}
+				if (!product.image_url) {
+					imageUrl = baseUrl + product.image.url;
+					} else {
+					imageUrl = product.image_url;
+					}
             
             let featured = "";
             if (product.featured === null || !product.featured) {

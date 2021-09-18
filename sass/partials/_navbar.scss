@@ -12,6 +12,10 @@
             color: #000 !important;
             background-color: $nav-link-background;
             border-color: $box-shadow;
+            font-weight: bold !important;
+            font-style: uppercase;
+            transition: all 1s;
+            font-size: larger;
             
         }
     }

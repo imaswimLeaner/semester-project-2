@@ -2,18 +2,21 @@
     text-align: center;
     border: none;
     box-shadow: 2px 2px 16px 0 rgba(63, 62, 62, 0.05);
+    margin: 5px solid blue;
 
     &-img-top {
         background-size: cover;
         display: flex;
         height: 300px;
-        // width: 100%;
+        width: 100%;
         // object-fit: scale-down;
         background-color: $light;
     }
 
     &--featured {
         position: relative;
+        
+
 
         p {
             position: absolute;
