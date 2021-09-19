@@ -21,6 +21,7 @@ const fileInput = document.querySelector("#uploadFile");
 const fileMessage = document.querySelector(".image-warning");
 const fileLabel = document.querySelector(".custom-file-label");
 const imgPreview = document.querySelector("#uploadImage");
+const imageUrl = document.querySelector('#image');
 
 const message = document.querySelector("#messageContainer");
 
@@ -54,45 +55,52 @@ function getProductFormData(event) {
     const price = parseFloat(priceInput.value);
     const description = descriptionInput.value.trim();
     const featured = featuredCheck.checked;
+    const imageValue = imageUrl.value.trim();
+    
 
-    if (title.length === 0 || description.length === 0 || price.length === 0 || isNaN(price)) {
-        return warningMessage("alert-warning", "Please enter all information", "#messageContainer");
+    if (
+			title.length === 0 ||
+			description.length === 0 ||
+			price.length === 0 ||
+			imageValue.length === 0 ||
+			isNaN(price)
+		) {
+			return warningMessage(
+				'alert-warning',
+				'Please enter all information',
+				'#messageContainer'
+			);
+		} else {
+			const data = {
+				title: title,
+				price: price,
+				description: description,
+				featured: featured,
+				image_url: image,
+			};
 
-    } else {
-        
-        const data = {
-            title: title,
-            price: price,
-            description: description,
-            featured: featured,
-            image_url: image,
+			// Get file data and add to formData
+			for (let i = 0; i < formElements.length; i++) {
+				const currentElement = formElements[i];
+				if (!['submit', 'file'].includes(currentElement.type)) {
+					data[currentElement.name] = currentElement.value;
+				} else if (currentElement.type === 'file') {
+					if (currentElement.files.length === 1) {
+						const file = currentElement.files[0];
+						formData.append(`files.${currentElement.name}`, file, file.name);
+					} else {
+						for (let i = 0; i < currentElement.files.length; i++) {
+							const file = currentElement.files[i];
+							formData.append(`files.${currentElement.name}`, file, file.name);
+						}
+					}
+				}
+			}
+			// Add other data to formData
+			formData.append('data', JSON.stringify(data));
 
-
-            
-        };
-
-        // Get file data and add to formData
-        for (let i = 0; i < formElements.length; i++) {
-            const currentElement = formElements[i];
-            if (!['submit', 'file'].includes(currentElement.type)) {
-                data[currentElement.title] = currentElement.value;
-            } else if (currentElement.type === 'file') {
-                if (currentElement.files.length === 1) {
-                    const file = currentElement.files[0];
-                    formData.append(`files.${currentElement.title}`, file, file.title);
-                } else {
-                    for (let i = 0; i < currentElement.files.length; i++) {
-                        const file = currentElement.files[i];
-                        formData.append(`files.${currentElement.title}`, file, file.title);
-                    }
-                }
-            }
-        }
-        // Add other data to formData 
-        formData.append('data', JSON.stringify(data));
-
-        trySubmitProduct(formData);
-    }
+			trySubmitProduct(formData);
+		}
 }
 
 // Post new product to strapi
@@ -114,7 +122,7 @@ async function trySubmitProduct(data) {
         const json = await response.json();
 
         if (json.created_at) {
-            submit.innerHTML = `Product added <i class="fas fa-check">Add Product</i>`;
+            submit.innerHTML = `Product added <i class="fas fa-check"></i>`;
             imgPreview.style.display = "none";
             fileLabel.innerHTML = "Choose image..."
             form.reset();

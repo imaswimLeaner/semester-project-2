@@ -1,8 +1,8 @@
-import {baseUrl} from './settings/api.js'
 import createMenu from "./components/menu.js";
 import warningMessage from "./components/warningMessage.js";
-import { cartItemsKey, saveToStorage, getFromStorage, getCartItems } from "./utils/cartStorage.js";
+import { cartItemsKey, saveToStorage, getFromStorage} from "./utils/cartStorage.js";
 import createFooter from './components/createFooter.js';
+
 
 createMenu();
 createFooter();
@@ -37,17 +37,12 @@ function createCartItems(products) {
 
     } else {
         products.forEach(function (product) {
-            console.log(product)
             
-            // let imageUrl = "";
-
-			// imageUrl = product.image;
-                    
-                
-            
-            
+             
             // Add price of product to price array
             priceArray.push(product.price);
+            
+
 
             
             let featured = "";
@@ -72,6 +67,7 @@ function createCartItems(products) {
                                             <div class="card-body">
                                                 <h5 class="card-title">${product.title}</h5>
                                                 <p class="card-text"> ${product.price} NOK</p>
+                                                
                                                     <div>
                                                         <a class="btn btn-primary" href="product.html?id=${product.id}">View details<i class="fas fa-angle-right"></i></a>
                                                         <p class="btn btn-outline-dark" id=removeFromCartButton" data-id="${product.id}">Remove<i class="far fa-trash-alt"></i></p>
@@ -91,6 +87,7 @@ function createCartItems(products) {
                                                         <div class="card-body">
                                                             <h4 class="card-title">${product.title}</h5>
                                                             <p class="card-text">$${product.price} NOK</p>
+                                                            
                                                                 <div>
                                                                     <a class="btn btn-primary" href="product.html?id=${product.id}">View details<i class="fas fa-angle-right"></i></a>
                                                                     <p class="btn btn-outline-dark" id="removeFromCartButton" data-id="${product.id}">Remove<i class="far fa-trash-alt"></i></p>
@@ -112,17 +109,26 @@ function createCartItems(products) {
 
     // Call function to calculate total price
     getTotalPrice(priceArray);
+    
 }
 
 // Add product prices together and display in HTML
 function getTotalPrice(priceArray) {
     const containerTotalPrice = document.querySelector(".container__products__cart__price span");
-
+    
     const totalPrice = priceArray.reduce(function (a, b) {
         return a + b;
     }, 0)
+    
+
     containerTotalPrice.innerHTML = totalPrice;
+   
 }
+
+
+
+
+
 
 // See if product remove button id matches id in local storage list, if true then remove from localstorage and create cart HTML again with new list and reset price array so it can be calculated again
 function removeFromCart(event) {

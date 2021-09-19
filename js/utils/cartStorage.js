@@ -22,3 +22,14 @@ export function getCartItems() {
 		return JSON.parse(cart);
 	}
 }
+
+export const tax = function (items) {
+	const tax = 0.12; // tax in %
+	let sum = 0;
+
+	items.forEach((item) => {
+		sum += item.price * item.quantity * tax;
+	});
+
+	return sum;
+};

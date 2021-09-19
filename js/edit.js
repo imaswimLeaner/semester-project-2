@@ -103,6 +103,8 @@ function getProductFormData(event) {
             price: price,
             description: description,
             featured: featured,
+            image: image,
+            image_url: url,
         };
 
         // Get file data

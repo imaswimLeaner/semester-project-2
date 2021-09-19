@@ -47,7 +47,7 @@ function createSingleProduct(products) {
     let featured = "";
 
     products.forEach(function (product) {
-        console.log(product)
+        
         document.title = "Bergs | " + product.title;
         if (product.featured === null || !product.featured) {
             featured = "";

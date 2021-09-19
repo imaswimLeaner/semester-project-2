@@ -86,17 +86,12 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
-              <div>
-              <label for="uploadFile">Image :</label>
-                 
+              <div class="form-group">
+             
+                <label for="uploadFile">Image:</label>
                 <div class="custom-file mb-3">
-                <input type="text" id="uploadFile" >
-                </div>
-              
-                <div class="form-group">
-                <input type="text" name="image" class="custom-file-input form-control" id="uploadFile" accept="image/x-png,image/gif,image/jpeg"/>
-                <label class="custom-file-label" for="uploadFile"> Choose image...</label>
-
+                  <input type="file" name="image" class="custom-file-input form-control" id="uploadFile" accept="image/x-png,image/gif,image/jpeg" />
+                  <label class="custom-file-label" for="uploadFile" >Choose image...</label >
                 </div>                 
                 <div class="w-100 image-warning">
                   File needs to be under 200KB
@@ -107,6 +102,13 @@
               </div>
             </div>
           </div>
+          <div class="form-group w-100">
+          <div class="input-group mb-3 form-group">
+              <span class="input-group-text" id="inputGroup-sizing-default uploadFile">URL</span>
+              <input type="url" id="image" name="image" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div> 
+          </div>
+          
           <div id="messageContainer"></div>
           <button type="submit" class="btn btn-primary" id="submit">
             Add product
