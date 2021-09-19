@@ -21,7 +21,7 @@ const fileInput = document.querySelector("#uploadFile");
 const fileMessage = document.querySelector(".image-warning");
 const fileLabel = document.querySelector(".custom-file-label");
 const imgPreview = document.querySelector("#uploadImage");
-const imageUrl = document.querySelector('#image');
+// const imageUrl = document.querySelector('#image');
 
 const message = document.querySelector("#messageContainer");
 
@@ -55,14 +55,14 @@ function getProductFormData(event) {
     const price = parseFloat(priceInput.value);
     const description = descriptionInput.value.trim();
     const featured = featuredCheck.checked;
-    const imageValue = imageUrl.value.trim();
+    // const imageValue = imageUrl.value.trim();
     
 
     if (
 			title.length === 0 ||
 			description.length === 0 ||
 			price.length === 0 ||
-			imageValue.length === 0 ||
+			// imageValue.length === 0 ||
 			isNaN(price)
 		) {
 			return warningMessage(
@@ -76,7 +76,7 @@ function getProductFormData(event) {
 				price: price,
 				description: description,
 				featured: featured,
-				image_url: image,
+				// image_url: image,
 			};
 
 			// Get file data and add to formData

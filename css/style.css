@@ -455,6 +455,23 @@ footer a {
   padding-top: 1em;
 }
 
+.paymentOptions, .text-muted {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -moz-linear-gradient(45deg, #feffff 0%, #d2ebf9 100%);
+  /* FF3.6-15 */
+  text-align: center;
+  padding: 5px 0;
+  margin-top: 0;
+}
+
+.options_bg {
+  background: -moz-linear-gradient(45deg, #feffff 0%, #d2ebf9 100%);
+  /* FF3.6-15 */
+  margin: solid 5px #feffff 0%;
+}
+
 .admin {
   text-align: center !important;
 }

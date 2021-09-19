@@ -4,8 +4,10 @@ import { cartItemsKey, saveToStorage, getFromStorage} from "./utils/cartStorage.
 import createFooter from './components/createFooter.js';
 
 
+
 createMenu();
 createFooter();
+
 
 const containerCartItems = document.querySelector(".container__products__cart");
 const clearCartButton = document.querySelector("#clearCart");
