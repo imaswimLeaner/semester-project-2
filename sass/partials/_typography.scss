@@ -29,6 +29,7 @@ h2 {
 
 .active {
     font-weight: 700;
+    color: darken($color:#000000, $amount: 0);
 }
 
 .link {
@@ -52,6 +53,7 @@ h2 {
 
 .icon {
     margin-right: 10px;
+    
 }
 
 .card-title {

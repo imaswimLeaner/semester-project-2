@@ -1,17 +1,8 @@
-// html {
-//    max-width: 1000px;
-//    height: 100%;
-// }
-
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url("../img/texture.png");
-
   background: $background-colorBody;
-  color: $dark-grey;
- 
   margin: 0 auto;
 }
 
@@ -42,4 +33,12 @@ section {
   justify-content: center;
 
   
+}
+
+.bodyChart_background_color{
+  background-color : $light ;
+}
+
+.text-right{
+  padding: 20px;
 }

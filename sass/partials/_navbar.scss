@@ -5,7 +5,17 @@
     .nav-link {
         letter-spacing: 1px;
         color: $dark-grey !important;
-        font-size: .9rem;
+        font-size: 1.1em;
+
+        
+       
+        &:active {
+            font-weight: bold !important;
+            font-size: larger;
+            font-style: italic underline !important;
+        }
+
+        
 
 
         &:hover {
@@ -22,7 +32,7 @@
 }
 
 .navbar-brand img {
-    height: 75px;
+    height: 100px;
     fill: white;
     
 }
@@ -30,13 +40,13 @@
 @media (max-width: 575px) {
         
         .navbar-brand img {
-        height: 100px;
+        height: 85px;
         fill: white;
     
     }
     
         .nav-link {
-            font-size: 1.2rem;
+            font-size: 1.7rem;
         }
 
 }

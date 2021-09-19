@@ -84,6 +84,7 @@ h2 {
 
 .active {
   font-weight: 700;
+  color: black;
 }
 
 .link--big {
@@ -124,9 +125,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-image: url("../img/texture.png");
   background: linear-gradient(45deg, #f9fcf7 0%, #f5f9f0 100%);
-  color: #333333;
   margin: 0 auto;
 }
 
@@ -160,6 +159,14 @@ section {
           justify-content: center;
 }
 
+.bodyChart_background_color {
+  background-color: #f8f9fa;
+}
+
+.text-right {
+  padding: 20px;
+}
+
 .navbar {
   background: -webkit-gradient(linear, left top, right top, from(#e1ffff), color-stop(0%, #e1ffff), color-stop(0%, #fdffff), color-stop(100%, #bee4f8), color-stop(100%, #e6f8fd), to(#b1d8f5));
   background: linear-gradient(to right, #e1ffff 0%, #e1ffff 0%, #fdffff 0%, #bee4f8 100%, #e6f8fd 100%, #b1d8f5 100%);
@@ -170,7 +177,13 @@ section {
 .navbar .nav-link {
   letter-spacing: 1px;
   color: #333333 !important;
-  font-size: .9rem;
+  font-size: 1.1em;
+}
+
+.navbar .nav-link:active {
+  font-weight: bold !important;
+  font-size: larger;
+  font-style: italic underline !important;
 }
 
 .navbar .nav-link:hover {
@@ -185,17 +198,17 @@ section {
 }
 
 .navbar-brand img {
-  height: 75px;
+  height: 100px;
   fill: white;
 }
 
 @media (max-width: 575px) {
   .navbar-brand img {
-    height: 100px;
+    height: 85px;
     fill: white;
   }
   .nav-link {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
   }
 }
 
@@ -270,17 +283,8 @@ section {
 }
 
 .header__background {
-  height: 500px;
+  height: 550px;
   width: 100%;
-  margin: 0 auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-size: cover;
-  background-position: center center;
 }
 
 .header__content {
@@ -381,8 +385,22 @@ footer {
   text-align: center;
   padding: 5px 0;
   margin-top: 0;
-  font: .3em;
+  font-size: .7em;
   font-family: 'Playfair Display', serif;
+}
+
+footer h4 {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+@media (min-width: 575px) {
+  footer {
+    font-size: 1em;
+  }
+  footer h4 {
+    font-size: 1.8em;
+  }
 }
 
 .footer-wrapper {
