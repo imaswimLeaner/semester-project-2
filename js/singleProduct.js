@@ -22,7 +22,7 @@ async function getSingleProduct() {
         const productsUrl = baseUrl + `/products?id=${id}`;
         const response = await fetch(productsUrl);
         const product = await response.json();
-        // createSingleProduct(product);
+        createSingleProduct(product);
         isItemInCart(product);
         addToCart(product);
     } catch (error) {
@@ -58,7 +58,7 @@ function createSingleProduct(products) {
         }
         
 
-        imageUrl = baseUrl + product.image.url;
+        const imageUrl = baseUrl+ product.image.url;
 				
 
         container.innerHTML += `
@@ -103,7 +103,7 @@ function addToCart(product) {
     
 
 		
-	imageUrl = baseUrl + product.image.url;
+	const imageUrl = baseUrl + product[0].image.url;
 		
             
 

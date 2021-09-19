@@ -30,13 +30,7 @@ export function createProducts(products) {
         products.forEach(function (product) {
             console.log(product);
            
-			     let imageUrl = '';
-
-				if (!product.image_url) {
-					imageUrl = baseUrl + product.image.url;
-					} else {
-					imageUrl = product.image_url;
-					}
+			   const imageUrl = baseUrl + product.image.url;
             
             let featured = "";
             if (product.featured === null || !product.featured) {

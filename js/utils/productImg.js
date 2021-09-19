@@ -1,4 +1,4 @@
-import { baseUrl } from '../../settings/api.js';
+import { baseUrl } from "../settings/api.js";
 
 
 export function productImgSmall(product) {

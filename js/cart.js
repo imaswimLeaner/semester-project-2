@@ -21,7 +21,7 @@ clearCartButton.addEventListener("click", function () {
 let priceArray = [];
 
 const cartItems = getFromStorage(cartItemsKey);
-const cart = getCartItems();
+
 createCartItems(cartItems);
 
 
@@ -38,9 +38,10 @@ function createCartItems(products) {
     } else {
         products.forEach(function (product) {
             console.log(product)
-            let imageUrl = '';
+            
+            // let imageUrl = "";
 
-			imageUrl = baseUrl + product.image;
+			// imageUrl = product.image;
                     
                 
             
@@ -62,7 +63,7 @@ function createCartItems(products) {
                                         <div class="col-md-4">
                                             <div class="card--featured">
                                             <a href="product.html?id=${product.id}">
-                                            <div style="background-image: url(${imageUrl})" class="card-img" alt="${product.title}"></div>
+                                            <div style="background-image: url(${product.image}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div>
                                             
                                             <p>Bestseller</p></a>
                                             </div>
@@ -84,7 +85,7 @@ function createCartItems(products) {
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
                                                         <a href="product.html?id=${product.id}">
-                                                        <div style="background-image: url(${imageUrl})" class="card-img" alt="${product.title}"></div></a>
+                                                        <div style="background-image:url(${product.image}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div></a>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">

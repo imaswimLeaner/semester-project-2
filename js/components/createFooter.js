@@ -14,7 +14,7 @@ export default function createFooter() {
 		 </div>
 	 <div class="footer-wrapper-column column-contact">
 			<h4>Contact</h4>
-				   <a href="letashoes@email.com" class="footer-email">info@letashoes.com</a>
+				   <a href="bergs@email.com" class="footer-email">info@bergs.com</a>
 				   <p>+47 999 99 9999</p>
 			       <p>or write us a message <a href="contactus.html" title="Contact Us">here</a></p>
 	</div>

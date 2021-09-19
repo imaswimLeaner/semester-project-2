@@ -59,11 +59,16 @@ function getProductFormData(event) {
         return warningMessage("alert-warning", "Please enter all information", "#messageContainer");
 
     } else {
+        
         const data = {
             title: title,
             price: price,
             description: description,
             featured: featured,
+            image_url: image,
+
+
+            
         };
 
         // Get file data and add to formData

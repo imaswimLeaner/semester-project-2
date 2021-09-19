@@ -46,12 +46,12 @@ export function createAdminProducts(products) {
 
 
         products.forEach(function (product) {
-            
+            console.log(product);
             let imageUrl = '';
 
 			if (!product.image_url) {
-				imageUrl = baseUrl + product.image.url;
-				} else {
+                imageUrl = baseUrl + product.image.url; 
+            } else {
 				imageUrl = product.image_url;
 				}
             
@@ -66,7 +66,7 @@ export function createAdminProducts(products) {
                 <div class="col mb-4 single__product">
                     <div class="card  h-100">
                     <div class="card--featured">
-                    <a href="edit.html?id=${product.id}"><img src="${imageUrl}" class="card-img-top" alt="${product.title} soap"></a>
+                    <a href="edit.html?id=${product.id}"><img src="${imageUrl}" class="card-img-top" alt="${product.title}"></a>
                     <p>Bestseller</p>
                     </div>
                         <div class="d-flex flex-column justify-content-between">

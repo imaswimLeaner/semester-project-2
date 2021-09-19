@@ -59,7 +59,7 @@ function placeProductInfo(product) {
     priceInput.value = product.price;
     descriptionInput.value = product.description;
     featuredCheck.checked = product.featured;
-    fileLabel.innerHTML = product.image.title;
+    fileLabel.innerHTML = product.image;
     imgPreview.style.display = "block";
     imgPreview.src = productImgSmall(product);
 }

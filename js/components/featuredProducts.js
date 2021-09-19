@@ -22,13 +22,7 @@ function createFeaturedProducts(products) {
         console.log(product);
         if (product.featured) {
             
-            let imageUrl = '';
-
-						if (!product.image_url) {
-							imageUrl = baseUrl + product.image.url;
-						} else {
-							imageUrl = product.image_url;
-						}
+            const imageUrl = baseUrl + product.image.url;
             
             container.innerHTML += `    
     <div class="col mb-4 single__product">
