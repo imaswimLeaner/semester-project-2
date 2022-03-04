@@ -1,46 +1,50 @@
-import { baseUrl } from "../settings/api.js";
-import warningMessage from "./warningMessage.js";
-import filterProducts from "../utils/filterProducts.js";
+/** @format */
 
-
+import { baseUrl } from '../settings/api.js';
+import warningMessage from './warningMessage.js';
+import filterProducts from '../utils/filterProducts.js';
 
 export default async function getProducts() {
-    try {
-        const productsUrl = baseUrl + "/products";
-        const response = await fetch(productsUrl);
-        const products = await response.json();
+	try {
+		const productsUrl = baseUrl + '/products';
+		const response = await fetch(productsUrl);
+		const products = await response.json();
 
-        filterProducts(products);
-        createProducts(products);
-
-    } catch (error) {
-        console.log(error);
-    }
+		filterProducts(products);
+		createProducts(products);
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export function createProducts(products) {
-    const container = document.querySelector(".container__products");
-    container.innerHTML = "";
-    if (products.length === 0) {
-        warningMessage("alert-warning", "No products matched your search", ".search-warning");
-    } else {
-        const warningContainer = document.querySelector(".search-warning"); {
-            warningContainer.style.display = "none";
-        }
-        products.forEach(function (product) {
-            console.log(product);
-           
-			   const imageUrl = baseUrl + product.image.url;
-            
-            let featured = "";
-            if (product.featured === null || !product.featured) {
-                featured = false;
-            } else {
-                featured = true;
-            }
+	const container = document.querySelector('.container__products');
+	container.innerHTML = '';
+	if (products.length === 0) {
+		warningMessage(
+			'alert-warning',
+			'No products matched your search',
+			'.search-warning'
+		);
+	} else {
+		const warningContainer = document.querySelector('.search-warning');
+		{
+			warningContainer.style.display = 'none';
+		}
+		products.forEach(function (product) {
+			console.log(product);
 
-            if (featured) {
-                container.innerHTML += `
+			const imageUrl = baseUrl + product.image.url;
+
+			let featured = '';
+			if (product.featured === null || !product.featured) {
+				featured = false;
+			} else {
+				featured = true;
+			}
+
+			if (featured) {
+				container.innerHTML += `
                 <div class="col mb-4 single__product">
                     <div class="card  h-200">
                     <div class="card--featured">
@@ -59,8 +63,8 @@ export function createProducts(products) {
                         </div>
                     </div>
                 </div>`;
-            } else {
-                container.innerHTML += `
+			} else {
+				container.innerHTML += `
     <div class="col mb-4 single__product">
         <div class="card  h-100">
         <a href="product.html?id=${product.id}">
@@ -76,8 +80,7 @@ export function createProducts(products) {
             </div>
         </div>
     </div>`;
-            }
-
-        });
-    }
+			}
+		});
+	}
 }

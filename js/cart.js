@@ -1,22 +1,27 @@
-import createMenu from "./components/menu.js";
-import warningMessage from "./components/warningMessage.js";
-import { cartItemsKey, saveToStorage, getFromStorage} from "./utils/cartStorage.js";
+/** @format */
+
+import createMenu from './components/menu.js';
+import warningMessage from './components/warningMessage.js';
+import {
+	cartItemsKey,
+	saveToStorage,
+	getFromStorage,
+} from './utils/cartStorage.js';
 import createFooter from './components/createFooter.js';
-
-
 
 createMenu();
 createFooter();
 
-
-const containerCartItems = document.querySelector(".container__products__cart");
-const clearCartButton = document.querySelector("#clearCart");
-const priceContainer = document.querySelector(".container__products__cart__price");
+const containerCartItems = document.querySelector('.container__products__cart');
+const clearCartButton = document.querySelector('#clearCart');
+const priceContainer = document.querySelector(
+	'.container__products__cart__price'
+);
 
 // Remove all cart items from local storage
-clearCartButton.addEventListener("click", function () {
-    window.localStorage.removeItem(cartItemsKey);
-    createCartItems(getFromStorage(cartItemsKey));
+clearCartButton.addEventListener('click', function () {
+	window.localStorage.removeItem(cartItemsKey);
+	createCartItems(getFromStorage(cartItemsKey));
 });
 
 // Make empty price array
@@ -26,41 +31,37 @@ const cartItems = getFromStorage(cartItemsKey);
 
 createCartItems(cartItems);
 
-
 // Create cart items HTML based on product list in local storage
 function createCartItems(products) {
-    
-    containerCartItems.innerHTML = "";
+	containerCartItems.innerHTML = '';
 
-    // Show warning if cart is empty
-    if (products.length === 0) {
-        warningMessage("alert-warning", "No products in cart", ".container__products__cart");
-        priceContainer.style.display = "none";
+	// Show warning if cart is empty
+	if (products.length === 0) {
+		warningMessage(
+			'alert-warning',
+			'No products in cart',
+			'.container__products__cart'
+		);
+		priceContainer.style.display = 'none';
+	} else {
+		products.forEach(function (product) {
+			// Add price of product to price array
+			priceArray.push(product.price);
 
-    } else {
-        products.forEach(function (product) {
-            
-             
-            // Add price of product to price array
-            priceArray.push(product.price);
-            
+			let featured = '';
 
-
-            
-            let featured = "";
-            
-            if (product.featured === null || !product.featured) {
-                featured = false;
-            } else {
-                featured = true;
-            }
-            if (featured) {
-                containerCartItems.innerHTML += `
+			if (product.featured === null || !product.featured) {
+				featured = false;
+			} else {
+				featured = true;
+			}
+			if (featured) {
+				containerCartItems.innerHTML += `
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
                                             <div class="card--featured">
                                             <a href="product.html?id=${product.id}">
-                                            <div style="background-image: url(${product.image}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div>
+                                            <div style="background-image: url(${product.image.url}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div>
                                             
                                             <p>Bestseller</p></a>
                                             </div>
@@ -78,12 +79,12 @@ function createCartItems(products) {
                                         </div>
                                     </div>
                                     <hr>`;
-            } else {
-                containerCartItems.innerHTML += `
+			} else {
+				containerCartItems.innerHTML += `
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
                                                         <a href="product.html?id=${product.id}">
-                                                        <div style="background-image:url(${product.image}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div></a>
+                                                        <div style="background-image:url(${product.image.url}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div></a>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
@@ -98,52 +99,44 @@ function createCartItems(products) {
                                                     </div>
                                                 </div>
                                                 <hr>`;
-                                                        }
+			}
+		});
+	}
+	// Select all remove from cart buttons and trigger remove function on click
+	const removeButtons = document.querySelectorAll('#removeFromCartButton');
+	removeButtons.forEach(function (button) {
+		button.addEventListener('click', (event) => removeFromCart(event));
+	});
 
-
-        });
-    }
-    // Select all remove from cart buttons and trigger remove function on click
-    const removeButtons = document.querySelectorAll("#removeFromCartButton");
-    removeButtons.forEach(function (button) {
-        button.addEventListener("click", (event) => removeFromCart(event))
-    });
-
-    // Call function to calculate total price
-    getTotalPrice(priceArray);
-    
+	// Call function to calculate total price
+	getTotalPrice(priceArray);
 }
 
 // Add product prices together and display in HTML
 function getTotalPrice(priceArray) {
-    const containerTotalPrice = document.querySelector(".container__products__cart__price span");
-    
-    const totalPrice = priceArray.reduce(function (a, b) {
-        return a + b;
-    }, 0)
-    
+	const containerTotalPrice = document.querySelector(
+		'.container__products__cart__price span'
+	);
 
-    containerTotalPrice.innerHTML = totalPrice;
-   
+	const totalPrice = priceArray.reduce(function (a, b) {
+		return a + b;
+	}, 0);
+
+	containerTotalPrice.innerHTML = totalPrice;
 }
-
-
-
-
-
 
 // See if product remove button id matches id in local storage list, if true then remove from localstorage and create cart HTML again with new list and reset price array so it can be calculated again
 function removeFromCart(event) {
-    const cartItems = getFromStorage(cartItemsKey);
-    const id = parseInt(event.target.dataset.id);
+	const cartItems = getFromStorage(cartItemsKey);
+	const id = parseInt(event.target.dataset.id);
 
-    const newCartItems = cartItems.filter(function (cartItem) {
-        if (cartItem.id !== id) {
-            return true;
-        }
-    });
+	const newCartItems = cartItems.filter(function (cartItem) {
+		if (cartItem.id !== id) {
+			return true;
+		}
+	});
 
-    saveToStorage(cartItemsKey, newCartItems);
-    priceArray = [];
-    createCartItems(newCartItems);
+	saveToStorage(cartItemsKey, newCartItems);
+	priceArray = [];
+	createCartItems(newCartItems);
 }

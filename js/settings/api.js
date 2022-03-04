@@ -1,3 +1,3 @@
-export const baseUrl = 'http://localhost:1337';
+/** @format */
 
-
+export const baseUrl = 'https://myshoe-online-backend-nathan.herokuapp.com';
