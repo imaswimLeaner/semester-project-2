@@ -34,7 +34,7 @@ export function createProducts(products) {
 		products.forEach(function (product) {
 			console.log(product);
 
-			const imageUrl = baseUrl + product.image.url;
+			const imageUrl = product.image[0].url;
 
 			let featured = '';
 			if (product.featured === null || !product.featured) {

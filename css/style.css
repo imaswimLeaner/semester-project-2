@@ -273,6 +273,7 @@ section {
   margin-left: 10px;
 }
 
+/** @format */
 .header {
   text-align: center;
   color: #f8f9fa;
@@ -306,7 +307,9 @@ section {
 
 .header p {
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 2rem;
+  color: #0cb0e7;
+  text-shadow: 11px 6px 7px rgba(71, 7, 168, 0.5);
   text-align: center;
   padding-left: 10px;
   padding-top: 80px;
@@ -319,6 +322,8 @@ section {
   }
   .header p {
     font-size: 1.1rem;
+    text-shadow: 11px 6px 7px rgba(0, 0, 0, 0.5);
+    background-color: aliceblue;
   }
 }
 

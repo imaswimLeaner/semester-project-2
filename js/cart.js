@@ -8,6 +8,7 @@ import {
 	getFromStorage,
 } from './utils/cartStorage.js';
 import createFooter from './components/createFooter.js';
+import { baseUrl } from './settings/api.js';
 
 createMenu();
 createFooter();
@@ -48,6 +49,10 @@ function createCartItems(products) {
 			// Add price of product to price array
 			priceArray.push(product.price);
 
+			const imageUrl = product.image;
+
+			// console.log(product.image[0].url);
+
 			let featured = '';
 
 			if (product.featured === null || !product.featured) {
@@ -61,7 +66,7 @@ function createCartItems(products) {
                                         <div class="col-md-4">
                                             <div class="card--featured">
                                             <a href="product.html?id=${product.id}">
-                                            <div style="background-image: url(${product.image.url}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div>
+                                            <div style="background-image: url(${imageUrl}) " class="card-img" alt="${product.title}"></div>
                                             
                                             <p>Bestseller</p></a>
                                             </div>
@@ -84,7 +89,7 @@ function createCartItems(products) {
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
                                                         <a href="product.html?id=${product.id}">
-                                                        <div style="background-image:url(${product.image.url}); background-size: cover; height: 100%; width: 100%;" class="card-img" alt="${product.title}"></div></a>
+                                                        <div style="background-image:url(${imageUrl})" class="card-img" alt="${product.title}"></div></a>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">

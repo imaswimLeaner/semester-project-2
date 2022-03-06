@@ -62,11 +62,11 @@ function createSingleProduct(products) {
             </div>`;
 		}
 
-		const imageUrl = baseUrl + product.image.url;
+		console.log(product.image[0].url);
 
 		container.innerHTML += `
         <div class="col-12 col-xl-8">
-            <img src="${imageUrl}; background-size: cover; height: 100%; width: 100%;" class="w-100" alt="${product.title}">
+            <img src="${product.image[0].url} " class="w-100" alt="${product.title}">
         </div>
         <div class="col-12 col-xl-4 d-flex flex-column justify-content-center align-items-start product__info">
         ${featured}
@@ -74,6 +74,7 @@ function createSingleProduct(products) {
             <h5 class="product__description">${product.description}</h5>
             <p class="product__price">${product.price} NOK</p>
             <a class="btn btn-primary button" id="addToCartButton">${buttonText}</a>
+			<a href="cart.html" class="btn btn-primary button" id="addToCartButton">Go To Cart</a>
         </div>`;
 		const breadcrumb = document.querySelector('.breadcrumb-item.active');
 		breadcrumb.innerHTML = `${product.title}`;

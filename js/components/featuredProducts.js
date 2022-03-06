@@ -20,14 +20,16 @@ function createFeaturedProducts(products) {
 	products.forEach(function (product) {
 		console.log(product);
 		if (product.featured) {
-			const imageUrl = baseUrl + product.image.url;
+			const imageUrl = product.image[0].url;
+
+			console.log(product.image[0].url);
 
 			container.innerHTML += `    
     <div class="col mb-4 single__product">
         <div class="card  h-100">
          <div class="card--featured">
             <a href="product.html?id=${product.id}">
-                <img src="${imageUrl}; background-size: cover; height: 100%; width: 100%;" class="card-img-top" alt="${product.title} brand">
+                <img src="${imageUrl}" class="card-img-top" alt="${product.title} brand">
             </a>
                 <p>Bestseller</p>
         </div>
